@@ -58,7 +58,7 @@ class FortiOS < Oxidized::Model
 
     cfg << cmd('end') if @vdom_enabled
 
-    cfg << cmd('show full-configuration | grep .')
+    cfg << cmd('show | grep .')
     cfg.join "\n"
   end
 
