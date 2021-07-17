@@ -17,11 +17,11 @@ RUN gem install gpgme sequel sqlite3 mysql2 pg --no-ri --no-rdoc
 RUN gem install net-tftp net-http-persistent mechanize --no-ri --no-rdoc
 
 # build and install oxidized
-COPY . /tmp/oxidized/
+ARG GIT_ORIGIN="https://github.com/DaveRichmond/oxidized.git"
+RUN git clone ${GIT_ORIGIN} /tmp/oxidized
 WORKDIR /tmp/oxidized
 
 # docker automated build gets shallow copy, but non-shallow copy cannot be unshallowed
-RUN git fetch --unshallow || true
 RUN rake install
 
 # web interface
