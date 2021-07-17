@@ -8,6 +8,34 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- enterasys800 model for enterasys 800-series fe/ge switches (@javichumellamo)
+- add ES3526XA-V2 support in EdgeCOS model (@moisseev)
+- model for eltex mes-series switches (@glaubway)
+- model for zte c300 and c320 olt (@glaubway)
+- model for LANCOM (@systeembeheerder)
+- model for Aruba CX switches (@jmurphy5)
+
+### Changed
+
+- rubocop dependency now ~> 0.81.0, the last one with ruby 2.3 support
+- change pfSense secret scrubbing to handle new format in 2.4.5+
+- Dockerfile rebased to phusion/baseimage-docker bionic-1.0.0
+- scrub PoE related messages from routeros config output (@pioto)
+- support for d-link dgs-1100 series switches in dlink model (@glaubway)
+- enterasys model now works with both ro and rw access (@sargon)
+
+### Fixed
+
+- fixed an issue where Oxidized could not pull config from XOS-devices operating in stacked mode (@DarkCatapulter)
+- fixed an issue where Oxidized could not pull config from XOS-devices that have not saved their configuration (@DarkCatapulter)
+- improved scrubbing of show chassis in ironware model (@michaelpsomiadis)
+- fixed snmp secret handling in netgear model (@CirnoT)
+- filter next periodic save schedule time in xos model output (@sargon)
+
+## [0.28.0 - 2020-05-18]
+
+### Added
+
 - add VMWare NSX Edge 6.4+ support (@elmobp)
 - add Dell EMC Networking OS10 support (@mmisslin)
 - add Centec Networks CNOS (Fiberstore S5800/S5850) support via cnos model (@freddy36)
@@ -15,6 +43,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - add Telco Systems T-Marc 3306 support via telco model (@SkylerBlumer)
 - add enable support to ciscosmb (@deesel)
 - add Waystream iBOS model
+- add QTECH model (@moisseev)
 
 ### Changed
 
@@ -23,6 +52,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - scrubs macsec key from Arista EOS (@krisamundson)
 - rubocop dependency now ~> 0.80.0
 - rugged dependency now ~> 0.28.0
+- cumulus model no longer records transient data (@plett)
 
 ### Fixed
 
@@ -34,6 +64,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - allow any max length for username/password in GcomBNPS (@freddy36)
 - relax prompt requirements in ciscosmb (@Atroskelis)
 - fortios model strips uptime even without remove_secrets (@jplitza)
+- HP ProCurve now accepts ">" as apart of the prompt (@magnuslarsen)
+- fix IOS SNMP notification community hiding for informs and v3 (@moisseev)
+- fixed issue where the regex-pattern for XOS-prompts used invalid syntax (@DarkCatapulter)
+- set terminal width in EdgeCOS model (@moisseev)
+- suppress errors for commands that are not supported on some devices in EdgeCOS model (@moisseev)
+- revert including command names in the output of the EdgeCOS model (@moisseev)
 
 ## [0.27.0] - 2019-10-27
 
